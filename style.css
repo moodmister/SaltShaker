@@ -1,0 +1,81 @@
+*, *::before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  font-size: 100%;
+  font-family: sans-serif;
+}
+
+section.screen-height {
+  height: 100vh;
+  overflow:hidden;
+}
+
+.salt-shaker {
+  text-align: center;
+  padding-top: 10%;
+}
+
+.salt-pieces {
+  text-align: center;
+  transform: translate(-120px, 10px);
+  animation: fall 0.7s infinite;
+}
+
+.salt {
+  display: inline-block;
+  height: 30px;
+  width: 20px;
+  background: #000;
+  border-radius: 50%;
+}
+
+#salt2 {
+  transform: translate(0, 10px);
+}
+
+.salt-shaker img {
+  transform: rotate(210deg) translate(10px, -100px);
+  animation: salt 0.7s infinite ease-in;
+}
+
+.salt-pile-wrapper {
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display:flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.salt-pile {
+  width: 800px;
+  height: 800px;
+  background: #000;
+  transform: translate(-120px, 900px) rotate(45deg);
+  animation: pile-up 20s infinite cubic-bezier(0, 0, 0, 0);
+}
+
+@keyframes pile-up {
+  from {transform: translate(-120px, 900px) rotate(45deg); }
+  to { transform: translate(-120px, 700px) rotate(45deg); }
+}
+
+@keyframes salt {
+  0% {transform: rotate(210deg) translate(10px, -100px);}
+  90% {transform: rotate(210deg) translate(0, 0);}
+  100% {transform: rotate(210deg) translate(10px, -100px);}
+}
+
+@keyframes fall {
+  0% {display: inline-block; transform:translate(-120px, 10px);}
+  90% { transform:translate(-120px, 50vh);}
+  100% {display: none; transform:translate(-120px, 50vh);}
+}
